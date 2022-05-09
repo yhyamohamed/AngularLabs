@@ -1,0 +1,80 @@
+
+    <small class="alert alert-success mt-3" role="alert" *ngIf="oprationDone">
+  An item has been {{operation}}!
+</small>
+<table
+  class="table table-striped table-hover table-bordered caption-top border-success text-center mt-0"
+>
+  <caption>
+    List of Students:
+  </caption>
+  <thead class="table-info">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Department No</th>
+      <th scope="col" >Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let std of students">
+      <th >{{ std.id }}</th>
+      <td>{{ std.name }}</td>
+      <td>{{ std.age }}</td>
+      <td>{{ std.deptno }}</td>
+      <td style='white-space: nowrap'>
+   
+        <button
+          type="button"
+          (click)="editStd(std.id)"
+          class="btn btn-sm btn-primary"
+        >
+          Edit
+        </button>
+        <button
+        type="button"
+        (click)="deleteStd(std.id)"
+        class="btn btn-sm btn-danger col mx-1 "
+      >
+        Delete
+      </button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr class="col-2" *ngIf="!haveStdToEdit">
+      <th><input type="text" [(ngModel)]="stdToAdd.id" /></th>
+      <th><input type="text" [(ngModel)]="stdToAdd.name" id="" /></th>
+      <th><input type="text" [(ngModel)]="stdToAdd.age" id="" /></th>
+      <th colspan="2">
+        <input
+          type="text"
+          [(ngModel)]="stdToAdd.deptno"
+          id=""
+          class="col-6 mx-3 d-inline"
+        />
+        <button type="button" (click)="addStd()" class="btn btn-sm btn-success">
+          Add
+        </button>
+      </th>
+    </tr>
+  
+    <tr class="col-2" *ngIf="haveStdToEdit">
+      <th><input type="text" [(ngModel)]="stdToEdit.id" /></th>
+      <th><input type="text" [(ngModel)]="stdToEdit.name" id="" /></th>
+      <th><input type="text" [(ngModel)]="stdToEdit.age" id="" /></th>
+      <th colspan="2">
+        <input
+          type="text"
+          [(ngModel)]="stdToEdit.deptno"
+          id=""
+          class="col-6 mx-3 d-inline"
+        />
+        <button type="button" (click)="doneEditing()" class="btn btn-sm btn-info">
+          Done!
+        </button>
+      </th>
+    </tr>
+  </tfoot>
+</table>
