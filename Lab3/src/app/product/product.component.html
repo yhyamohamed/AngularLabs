@@ -1,0 +1,49 @@
+<!-- <div>power of 10's test  : {{10|powerToX:2}}</div>
+<div>power of 10's test  : {{"iti-42-yaya"  | stringConverter}}</div> -->
+<div class="container mt-5">
+  <div class="bg-light">
+
+    <label for="filter" class="form-label me-2">Search key : </label>
+    <input
+      id="filter"
+      type="text"
+      [(ngModel)]="term"
+      class="p-inputtext-sm "
+      pInputText
+    />
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Success"
+      class="p-button-rounded p-button-success m-2"
+    ></button>
+
+    <table
+      class="table table-striped table-hover table-bordered caption-top border-success text-center mt-0"
+    >
+      <caption>
+        List of products:
+      </caption>
+      <thead class="table-info">
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Available</th>
+          <th>Rate</th>
+          <th>price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | arraySplice: term">
+          <td>{{ product.code | stringConverter }}</td>
+          <td>{{ product.name | stringConverter }}</td>
+          <td>{{ product.available | date: "fullDate" }}</td>
+          <td>    <app-rate [rate]="product.rate"></app-rate>
+          </td>
+          <td>{{ product.price | currency: "USD" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
