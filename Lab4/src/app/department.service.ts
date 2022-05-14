@@ -17,7 +17,7 @@ addDepartment(dept:Department){
   this.deps.push(dept)
 }
 getDepartmanet(id:number){
-  return this.deps.filter(ele => ele.id == id)
+  return this.deps.filter(ele => ele.id == id)[0]
 }
   constructor() { }
 }

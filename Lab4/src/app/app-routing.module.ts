@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DepartmentAddComponent } from './department/department-add/department-add.component';
+import { DepartmentDetailsComponent } from './department/department-details/department-details.component';
 import { DepartmentListComponent } from './department/department-list/department-list.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   // / /dep
   {path:'departments',component:DepartmentListComponent},
   {path:'departments/add',component:DepartmentAddComponent},
+  {path:'departments/:id',component:DepartmentDetailsComponent},
   // /about-us
   {path:'about-us',component:AboutUsComponent},
   // /contact-us
