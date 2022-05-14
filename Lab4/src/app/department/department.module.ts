@@ -15,8 +15,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,FormsModule
   ],
-  exports:[  DepartmentListComponent,
+  exports:[ 
+     DepartmentListComponent,
     DepartmentAddComponent,
-    DepartmentDetailsComponent]
+    DepartmentDetailsComponent
+  ]
 })
 export class DepartmentModule { }
