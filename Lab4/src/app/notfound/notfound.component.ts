@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DepartmentService } from '../department.service';
 
 @Component({
   selector: 'app-notfound',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotfoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private depServ:DepartmentService) { }
 
   ngOnInit(): void {
+    this.depServ.error=true;
   }
 
 }

@@ -9,6 +9,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ContactUsComponent,
     AboutUsComponent,
     NavbarComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, DepartmentModule, FormsModule],
   providers: [],

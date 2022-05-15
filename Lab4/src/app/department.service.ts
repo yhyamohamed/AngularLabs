@@ -5,6 +5,7 @@ import { Department } from './_models/department.model';
   providedIn: 'root'
 })
 export class DepartmentService {
+  public error=false;
 private deps:Department[]=[
   new Department(100,"os",'alex'),
   new Department(102,"pd",'alex'),
