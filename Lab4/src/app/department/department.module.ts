@@ -4,21 +4,19 @@ import { DepartmentListComponent } from './department-list/department-list.compo
 import { DepartmentAddComponent } from './department-add/department-add.component';
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
     DepartmentListComponent,
     DepartmentAddComponent,
-    DepartmentDetailsComponent
+    DepartmentDetailsComponent,
   ],
-  imports: [
-    CommonModule,FormsModule
-  ],
-  exports:[ 
-     DepartmentListComponent,
+  imports: [CommonModule, FormsModule, RouterModule],
+  exports: [
+    DepartmentListComponent,
     DepartmentAddComponent,
-    DepartmentDetailsComponent
-  ]
+    DepartmentDetailsComponent,
+  ],
 })
-export class DepartmentModule { }
+export class DepartmentModule {}

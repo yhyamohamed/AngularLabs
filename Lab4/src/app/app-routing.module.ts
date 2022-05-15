@@ -8,21 +8,25 @@ import { DepartmentListComponent } from './department/department-list/department
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  {path:'departments',redirectTo:'departments',pathMatch:'full'},
+  { path: '', redirectTo: 'departments', pathMatch: 'full' },
   // / /dep
-  {path:'departments',component:DepartmentListComponent},
-  {path:'departments/add',component:DepartmentAddComponent},
-  {path:'departments/:id',component:DepartmentDetailsComponent},
+  {
+    path: 'departments',
+    component: DepartmentListComponent,
+    children: [{ path: 'add', component: DepartmentAddComponent }],
+  },
+  // {path:'departments/add',component:DepartmentAddComponent},
+  { path: 'departments/:id', component: DepartmentDetailsComponent },
   // /about-us
-  {path:'about-us',component:AboutUsComponent},
+  { path: 'about-us', component: AboutUsComponent },
   // /contact-us
-  {path:'contact-us',component:ContactUsComponent},
+  { path: 'contact-us', component: ContactUsComponent },
   // not found
-  {path:'**',component:NotfoundComponent}
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
