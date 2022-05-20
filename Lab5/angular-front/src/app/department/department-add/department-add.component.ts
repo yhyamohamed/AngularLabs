@@ -12,7 +12,10 @@ export class DepartmentAddComponent implements OnInit {
 deptToAdd:Department= new Department(0,"","");
   constructor(public deptServ:DepartmentService) { }
   add(){
-    this.deptServ.addDepartment(this.deptToAdd);
+    console.log(this.deptToAdd.name)
+    this.deptServ
+      .addDepartment(this.deptToAdd)
+      .subscribe((a) => this.deptServ.getAllDepartmets());
   }
   ngOnInit(): void {
   

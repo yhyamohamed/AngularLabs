@@ -4,7 +4,7 @@ const body_parser=require("body-parser");
 const mongoose=require("mongoose");
 const multer=require("multer");
 const  path=require("path");
-
+const seeder = require('./seeder')
 
 const departmentRouter=require("./Routers/DepartmentRouter")
 const studentRouter=require("./Routers/StudentRouter")
@@ -34,14 +34,16 @@ const fileFilter=(req,file,cb)=>{
 
 //create server
 const app=  express();
-mongoose.connect("mongodb://localhost:27017/ITIProject2")
+mongoose.connect("mongodb://localhost:27017/AngularBackEndLab")
         .then(()=>{
             console.log("DB connected ....");
             
             // listen on port Number
-            app.listen(process.env.PORT||8080,()=>{
+            let port =process.env.PORT||8080;
+            app.listen(port,()=>{
               
-                console.log("I am Listenining .......")
+                console.log(`I am Listenining .......on port ${port}`)
+                seeder();
             });
 
         })

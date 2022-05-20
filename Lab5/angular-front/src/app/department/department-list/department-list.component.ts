@@ -15,9 +15,16 @@ export class DepartmentListComponent implements OnInit {
   constructor(public deptServ: DepartmentService, private router: Router) {}
 
   ngOnInit(): void {
-    this.allDept = this.deptServ.getAllDepartmets();
+    this.deptServ.getAllDepartmets().subscribe((data) => {
+      this.allDept = data;
+    });
   }
   show(id: number) {
     this.router.navigate(['departments', id]);
+  }
+  delet(id:number){
+        this.deptServ.deleteDepartment(id).subscribe((data) => {
+          console.log('deleted')
+        });
   }
 }

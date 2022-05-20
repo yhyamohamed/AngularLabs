@@ -19,17 +19,24 @@ class="table table-striped table-hover table-bordered caption-top border-success
 </thead>
 <tbody>
   <tr *ngFor="let dep of allDept ">
-    <td>{{ dep.id}}</td>
+    <td>{{ dep._id}}</td>
     <td>{{ dep.name }}</td>
     <td>{{ dep.location  }}</td> 
     <td style='white-space: nowrap'>
    
       <button
         type="button"
-        (click)="show(dep.id)"
+        (click)="show(dep._id)"
         class="btn btn-sm btn-primary"
       >
-        Edit
+        Details
+      </button>
+      <button
+        type="button"
+        (click)="delet(dep._id)"
+        class="btn btn-sm btn-danger ms-1"
+      >
+        Delete
       </button>
   </tr>
 </tbody>
